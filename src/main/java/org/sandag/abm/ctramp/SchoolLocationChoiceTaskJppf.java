@@ -140,6 +140,21 @@ public class SchoolLocationChoiceTaskJppf
 
             hhDataManager.setHhArray(householdArray, startIndex);
             
+            boolean worked=false;
+            int tries=0;
+            do{
+            	++tries;
+            	try{
+            		hhDataManager.setHhArray(householdArray, startIndex);
+            		worked=true;
+                }catch(Exception e) {
+            		System.out.println("Error trying to set households in hh manager for start index "+startIndex+" (tried "+tries+" times");
+            		if(tries<1000)
+            			System.out.println("Trying again!");
+                }
+            }while(!worked && (tries<1000));
+            
+            
             //check to make sure hh array got set in hhDataManager
             boolean allHouseholdsAreSame = false;
             while(!allHouseholdsAreSame) {

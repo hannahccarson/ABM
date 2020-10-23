@@ -712,10 +712,10 @@ public abstract class HouseholdDataManager
 
     public void setHhArray(Household[] tempHhs, int startIndex)
     {
-        // long startTime = System.currentTimeMillis();
-        // logger.info(String.format("start setHhArray for startIndex=%d, startTime=%d.",
-        // startIndex,
-        // startTime));
+         long startTime = System.currentTimeMillis();
+         logger.info(String.format("start setHhArray for startIndex=%d, startTime=%d.",
+         startIndex,
+         startTime));
        
     	synchronized(hhs) {
     		for (int i = 0; i < tempHhs.length; i++)
@@ -723,11 +723,12 @@ public abstract class HouseholdDataManager
             	hhs[startIndex + i] = tempHhs[i];
         	}
     	}
-        // long endTime = System.currentTimeMillis();
-        // logger.info(String.format(
-        // "end setHhArray for startIndex=%d, endTime=%d, elapsed=%d millisecs.",
-        // startIndex,
-        // endTime, (endTime - startTime)));
+        
+    	long endTime = System.currentTimeMillis();
+        logger.info(String.format(
+        "end setHhArray for startIndex=%d, endTime=%d, elapsed=%d millisecs.",
+        startIndex,
+        endTime, (endTime - startTime)));
     }
 
     /**
